@@ -8,8 +8,8 @@ namespace EjercicioEditorGrafico
 {
     internal class EditorGrafico
     {
-        public int Ancho { get; private set; }
+        public static int Ancho = 800;
 
-        public int Alto { get; private set; }
+        public static int Alto = 600;
     }
 }
