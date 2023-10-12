@@ -8,16 +8,24 @@ namespace EjercicioEditorGrafico
 {
     public class GraficoCompuesto : IGrafico
     {
-        List<IGrafico> elementos = new List<IGrafico>();
+        List<IGrafico> Elementos = new List<IGrafico>();
 
-        public void Dibujar()
+        public override void Dibujar()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("Dibujo Gráfico Compuesto");
         }
 
-        public bool Mover(int x, int y)
+        override public bool Mover(int x, int y)
         {
-            throw new NotImplementedException();
+            foreach (var item in Elementos)
+            {
+                item.Mover(x, y);
+            }
+        }
+
+        public void AñadirGrafico (IGrafico grafico)
+        {
+            Elementos.Add(grafico);
         }
     } 
 }

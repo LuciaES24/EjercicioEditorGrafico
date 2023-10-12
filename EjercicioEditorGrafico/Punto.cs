@@ -10,22 +10,24 @@ namespace EjercicioEditorGrafico
     {
         public Punto(int x, int y)
         {
-            this.x = x;
-            this.y = y;
+            this.X = x;
+            this.Y = y;
         }
 
-        public int x { get; set; }
+        public int X { get; set; }
 
-        public int y { get; set; }
+        public int Y { get; set; }
 
-        public void Dibujar()
+        public override void Dibujar()
         {
-            
+            Console.WriteLine($"Dibujo Punto || X:{X} Y:{Y}");
         }
 
-        public bool Mover(int x, int y)
+        public override bool Mover(int x, int y)
         {
-            if (x > EditorGrafico.Ancho && y > EditorGrafico.Alto || x < 0 && y < 0)
+            X = X + x;
+            Y = Y + y;
+            if (X > EditorGrafico.Ancho || Y > EditorGrafico.Alto || X < 0 || Y < 0)
             {
                 return false;
             }
