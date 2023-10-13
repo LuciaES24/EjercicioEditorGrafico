@@ -18,12 +18,12 @@ namespace EjercicioEditorGrafico
 
         public int AltoR { get; set; }
 
-        public override void Dibujar()
+        public void Dibujar()
         {
             Console.WriteLine($"Dibujo Rectángulo || X:{X} Y:{Y} Ancho:{AnchoR} Alto:{AltoR}");
         }
 
-        public override bool Mover(int x, int y)
+        public bool Mover(int x, int y)
         {
             X = X + x + AnchoR;
             Y = Y + y + AltoR;

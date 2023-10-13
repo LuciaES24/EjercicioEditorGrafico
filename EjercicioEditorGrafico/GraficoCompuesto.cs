@@ -10,16 +10,24 @@ namespace EjercicioEditorGrafico
     {
         List<IGrafico> Elementos = new List<IGrafico>();
 
-        public override void Dibujar()
+        public void Dibujar()
         {
             Console.WriteLine("Dibujo Gráfico Compuesto");
         }
 
-        override public bool Mover(int x, int y)
+        public bool Mover(int x, int y)
         {
             foreach (var item in Elementos)
             {
-                item.Mover(x, y);
+                return item.Mover(x, y);
+            }
+        }
+
+        public void Dibujar()
+        {
+            foreach (var item in Elementos)
+            {
+                Console.WriteLine($"Grafico Compuesto {item.Dibujar()}");
             }
         }
 

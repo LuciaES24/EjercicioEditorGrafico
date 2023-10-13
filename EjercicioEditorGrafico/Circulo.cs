@@ -14,12 +14,12 @@ namespace EjercicioEditorGrafico
 
         public int Radio { get; set; }
 
-        public override void Dibujar()
+        public void Dibujar()
         {
             Console.WriteLine($"Dibujo Circulo || X:{X} Y:{Y} Radio:{Radio}");
         }
 
-        public override bool Mover(int x, int y)
+        public bool Mover(int x, int y)
         {
             X = X + x + Radio;
             Y = Y + y + Radio;
