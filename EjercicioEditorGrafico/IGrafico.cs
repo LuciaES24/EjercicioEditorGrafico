@@ -10,6 +10,6 @@ namespace EjercicioEditorGrafico
     {
         public bool Mover(int x, int y);
 
-        public void Dibujar();
+        public string Dibujar();
     }
 }

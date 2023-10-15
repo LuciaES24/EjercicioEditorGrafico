@@ -23,11 +23,12 @@ namespace EjercicioEditorGrafico
             }
         }
 
-        public void Dibujar()
+        public string Dibujar()
         {
+            Console.WriteLine("Gráfico Compuesto ");
             foreach (var item in Elementos)
             {
-                Console.WriteLine($"Grafico Compuesto {item.Dibujar()}");
+                item.Dibujar();
             }
         }
 
