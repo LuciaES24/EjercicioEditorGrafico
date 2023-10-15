@@ -14,12 +14,16 @@ namespace EjercicioEditorGrafico
 
         public int Radio { get; set; }
 
+#pragma warning disable CS0108 // El miembro oculta el miembro heredado. Falta una contraseña nueva
         public void Dibujar()
+#pragma warning restore CS0108 // El miembro oculta el miembro heredado. Falta una contraseña nueva
         {
             Console.WriteLine($"Dibujo Circulo || X:{X} Y:{Y} Radio:{Radio}");
         }
 
+#pragma warning disable CS0108 // El miembro oculta el miembro heredado. Falta una contraseña nueva
         public bool Mover(int x, int y)
+#pragma warning restore CS0108 // El miembro oculta el miembro heredado. Falta una contraseña nueva
         {
             X = X + x + Radio;
             Y = Y + y + Radio;
