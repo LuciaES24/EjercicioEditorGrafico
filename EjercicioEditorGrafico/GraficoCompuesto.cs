@@ -10,26 +10,31 @@ namespace EjercicioEditorGrafico
     {
         List<IGrafico> Elementos = new List<IGrafico>();
 
-        public void Dibujar()
-        {
-            Console.WriteLine("Dibujo Gráfico Compuesto");
-        }
-
         public bool Mover(int x, int y)
         {
+            var esCorrecto = true;
             foreach (var item in Elementos)
             {
-                return item.Mover(x, y);
+                if(item.Mover(x,y) == true)
+                {
+                    esCorrecto = true;
+                }else 
+                {
+                    esCorrecto = false;
+                    break;
+                }
             }
+            return esCorrecto;
         }
 
         public string Dibujar()
         {
-            Console.WriteLine("Gráfico Compuesto ");
+            var grafico = "Dibujo Gráfico Compuesto || ";
             foreach (var item in Elementos)
             {
-                item.Dibujar();
+                grafico += item.Dibujar() + " || ";
             }
+            return grafico;
         }
 
         public void AñadirGrafico (IGrafico grafico)

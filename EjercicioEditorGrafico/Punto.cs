@@ -10,20 +10,34 @@ namespace EjercicioEditorGrafico
     {
         public Punto(int x, int y)
         {
-            this.X = x;
-            this.Y = y;
+            try
+            {
+                if (x > EditorGrafico.Ancho || y > EditorGrafico.Alto || x < 0 || y < 0)
+                {
+                    throw new IndexOutOfRangeException();
+                }
+                else
+                {
+                    this.X = x;
+                    this.Y = y;
+                }
+            }
+            catch (IndexOutOfRangeException)
+            {
+                Console.WriteLine("Las coordenadas no son correctas");
+            }
         }
 
         public int X { get; set; }
 
         public int Y { get; set; }
 
-        public void Dibujar()
+        public virtual string Dibujar()
         {
-            Console.WriteLine($"Dibujo Punto || X:{X} Y:{Y}");
+            return $"Dibujo Punto || X:{X} Y:{Y}";
         }
 
-        public bool Mover(int x, int y)
+        public virtual bool Mover(int x, int y)
         {
             X = X + x;
             Y = Y + y;

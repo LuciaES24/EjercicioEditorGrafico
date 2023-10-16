@@ -9,21 +9,31 @@ namespace EjercicioEditorGrafico
     public class Circulo : Punto
     {
         public Circulo(int x, int y, int radio):base(x,y) {
-            this.Radio = radio;
+            try
+            {
+                if (x + radio > EditorGrafico.Ancho || y + radio  > EditorGrafico.Alto || x - radio < 0 || y - radio < 0)
+                {
+                    throw new IndexOutOfRangeException();
+                }
+                else
+                {
+                    this.Radio = radio;
+                }
+            }
+            catch (IndexOutOfRangeException)
+            {
+                Console.WriteLine("Las coordenadas no son correctas");
+            }
         }
 
         public int Radio { get; set; }
 
-#pragma warning disable CS0108 // El miembro oculta el miembro heredado. Falta una contraseña nueva
-        public void Dibujar()
-#pragma warning restore CS0108 // El miembro oculta el miembro heredado. Falta una contraseña nueva
+        public override string Dibujar()
         {
-            Console.WriteLine($"Dibujo Circulo || X:{X} Y:{Y} Radio:{Radio}");
+            return $"Dibujo Circulo || X:{X} Y:{Y} Radio:{Radio}";
         }
 
-#pragma warning disable CS0108 // El miembro oculta el miembro heredado. Falta una contraseña nueva
-        public bool Mover(int x, int y)
-#pragma warning restore CS0108 // El miembro oculta el miembro heredado. Falta una contraseña nueva
+        public override bool Mover(int x, int y)
         {
             X = X + x + Radio;
             Y = Y + y + Radio;

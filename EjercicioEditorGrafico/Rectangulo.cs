@@ -9,25 +9,35 @@ namespace EjercicioEditorGrafico
     public class Rectangulo : Punto
     {
         public Rectangulo(int x, int y, int ancho, int alto) : base(x,y)
-        { 
-            this.AnchoR = ancho;
-            this.AltoR = alto;
+        {
+            try
+            {
+                if (x + ancho > EditorGrafico.Ancho || y + alto > EditorGrafico.Alto || x - ancho < 0 || y - alto < 0)
+                {
+                    throw new IndexOutOfRangeException();
+                }
+                else
+                {
+                    this.AnchoR = ancho;
+                    this.AltoR = alto;
+                }
+            }
+            catch (IndexOutOfRangeException)
+            {
+                Console.WriteLine("Las coordenadas no son correctas");
+            }
         }
 
         public int AnchoR { get; set; }
 
         public int AltoR { get; set; }
 
-#pragma warning disable CS0108 // El miembro oculta el miembro heredado. Falta una contraseña nueva
-        public void Dibujar()
-#pragma warning restore CS0108 // El miembro oculta el miembro heredado. Falta una contraseña nueva
+        public override string Dibujar()
         {
-            Console.WriteLine($"Dibujo Rectángulo || X:{X} Y:{Y} Ancho:{AnchoR} Alto:{AltoR}");
+            return $"Dibujo Rectángulo || X:{X} Y:{Y} Ancho:{AnchoR} Alto:{AltoR}";
         }
 
-#pragma warning disable CS0108 // El miembro oculta el miembro heredado. Falta una contraseña nueva
-        public bool Mover(int x, int y)
-#pragma warning restore CS0108 // El miembro oculta el miembro heredado. Falta una contraseña nueva
+        public override bool Mover(int x, int y)
         {
             X = X + x + AnchoR;
             Y = Y + y + AltoR;
