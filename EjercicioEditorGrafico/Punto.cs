@@ -10,21 +10,14 @@ namespace EjercicioEditorGrafico
     {
         public Punto(int x, int y)
         {
-            try
+            if (x > EditorGrafico.Ancho || y > EditorGrafico.Alto || x < 0 || y < 0)
             {
-                if (x > EditorGrafico.Ancho || y > EditorGrafico.Alto || x < 0 || y < 0)
-                {
-                    throw new IndexOutOfRangeException();
-                }
-                else
-                {
-                    this.X = x;
-                    this.Y = y;
-                }
+                throw new IndexOutOfRangeException();
             }
-            catch (IndexOutOfRangeException)
+            else
             {
-                Console.WriteLine("Las coordenadas no son correctas");
+                this.X = x;
+                this.Y = y;
             }
         }
 

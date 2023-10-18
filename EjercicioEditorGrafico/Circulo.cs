@@ -9,20 +9,13 @@ namespace EjercicioEditorGrafico
     public class Circulo : Punto
     {
         public Circulo(int x, int y, int radio):base(x,y) {
-            try
+            if (x + radio > EditorGrafico.Ancho || y + radio > EditorGrafico.Alto || x - radio < 0 || y - radio < 0)
             {
-                if (x + radio > EditorGrafico.Ancho || y + radio  > EditorGrafico.Alto || x - radio < 0 || y - radio < 0)
-                {
-                    throw new IndexOutOfRangeException();
-                }
-                else
-                {
-                    this.Radio = radio;
-                }
+                throw new IndexOutOfRangeException();
             }
-            catch (IndexOutOfRangeException)
+            else
             {
-                Console.WriteLine("Las coordenadas no son correctas");
+                this.Radio = radio;
             }
         }
 

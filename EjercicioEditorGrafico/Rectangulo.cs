@@ -10,21 +10,14 @@ namespace EjercicioEditorGrafico
     {
         public Rectangulo(int x, int y, int ancho, int alto) : base(x,y)
         {
-            try
+            if (x + ancho > EditorGrafico.Ancho || y + alto > EditorGrafico.Alto || x - ancho < 0 || y - alto < 0)
             {
-                if (x + ancho > EditorGrafico.Ancho || y + alto > EditorGrafico.Alto || x - ancho < 0 || y - alto < 0)
-                {
-                    throw new IndexOutOfRangeException();
-                }
-                else
-                {
-                    this.AnchoR = ancho;
-                    this.AltoR = alto;
-                }
+                throw new IndexOutOfRangeException();
             }
-            catch (IndexOutOfRangeException)
+            else
             {
-                Console.WriteLine("Las coordenadas no son correctas");
+                this.AnchoR = ancho;
+                this.AltoR = alto;
             }
         }
 
